@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useAuth } from "../../../context/AuthContext";
-
-// IMPORT API SERVICE
 import { loginCustomer } from "../../../services/api";
 
 const Login = () => {
@@ -15,15 +14,12 @@ const Login = () => {
     password: "",
   });
 
+  const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // ✅ ប្តូរពី "/login" ទៅ "/" ដើម្បីការពារកុំឱ្យវា Redirect មកទំព័រដដែលនាំឱ្យគាំង
-  const from = location.state?.from || "/"; 
+  const from = location.state?.from || "/";
 
-  // ============================================
-  // HANDLE INPUT CHANGE
-  // ============================================
   const handleChange = (e) => {
     setCredentials((prev) => ({
       ...prev,
@@ -33,9 +29,6 @@ const Login = () => {
     setError("");
   };
 
-  // ============================================
-  // LOGIN WITH BACKEND API
-  // ============================================
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -47,37 +40,71 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      // CALL BACKEND LOGIN API
       const data = await loginCustomer(credentials);
 
-      // STORE USER DATA
       const userData = {
         ...data.data,
-        customer_id: data.data?.cust_id, // ប្រើ optional chaining (?.) ដើម្បីការពារកុំឱ្យបាក់កូដបើគ្មាន cust_id
+        customer_id: data.data?.cust_id,
       };
 
       signIn(userData);
 
-      // REDIRECT AFTER LOGIN
       navigate(from, { replace: true });
     } catch (err) {
       console.error("Login Error:", err);
-      // បង្ហាញសារកំហុសដែលឆ្លើយតបមកពី Backend API បើមាន
-      setError(err.response?.data?.message || err.message || "Something went wrong");
+
+      setError(
+        err.response?.data?.message ||
+          err.message ||
+          "Something went wrong"
+      );
     } finally {
       setIsLoading(false);
     }
   };
 
-  // ប្រសិនបើបាន Login រួចរាល់ហើយ
   if (user) {
     return (
-      <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "#f9fafb" }}>
-        <div style={{ background: "white", padding: "40px", borderRadius: "12px", boxShadow: "0 10px 30px rgba(0,0,0,0.08)", textAlign: "center" }}>
-          <h2 style={{ color: "#333", marginBottom: "20px" }}>You are already logged in</h2>
-          <button 
+      <div
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "#f8fafc",
+        }}
+      >
+        <div
+          style={{
+            background: "#fff",
+            padding: "40px",
+            borderRadius: "16px",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+            textAlign: "center",
+            width: "100%",
+            maxWidth: "420px",
+          }}
+        >
+          <h2
+            style={{
+              marginBottom: "20px",
+              color: "#1e293b",
+            }}
+          >
+            You are already logged in
+          </h2>
+
+          <button
             onClick={() => navigate("/")}
-            style={{ padding: "12px 24px", borderRadius: "8px", border: "none", background: "#FF6B35", color: "white", cursor: "pointer", fontWeight: "600" }}
+            style={{
+              padding: "12px 24px",
+              border: "none",
+              borderRadius: "10px",
+              background: "#FF6B35",
+              color: "#fff",
+              fontWeight: "600",
+              cursor: "pointer",
+            }}
           >
             Go To Shop
           </button>
@@ -87,57 +114,174 @@ const Login = () => {
   }
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "#f9fafb", padding: "20px" }}>
-      <div style={{ background: "white", padding: "40px", borderRadius: "12px", boxShadow: "0 10px 30px rgba(0,0,0,0.08)", width: "100%", maxWidth: "400px" }}>
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background:
+          "linear-gradient(135deg, #fff7ed 0%, #f8fafc 50%, #eff6ff 100%)",
+        padding: "20px",
+      }}
+    >
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "420px",
+          background: "#fff",
+          padding: "40px",
+          borderRadius: "20px",
+          boxShadow: "0 15px 40px rgba(0,0,0,0.08)",
+        }}
+      >
         <form onSubmit={handleSubmit}>
-          <h1 style={{ color: "black", textAlign: "center", marginBottom: "24px" }}>Customer Login</h1>
+          <h1
+            style={{
+              textAlign: "center",
+              marginBottom: "8px",
+              color: "#0f172a",
+            }}
+          >
+            Welcome Back
+          </h1>
+
+          <p
+            style={{
+              textAlign: "center",
+              color: "#64748b",
+              marginBottom: "30px",
+            }}
+          >
+            Sign in to your account
+          </p>
 
           {error && (
-            <div style={{ background: "#ffebee", color: "#c62828", padding: "12px", borderRadius: "8px", marginBottom: "16px", fontSize: "0.9rem" }}>
-              ⚠️ {error}
+            <div
+              style={{
+                background: "#fef2f2",
+                color: "#dc2626",
+                padding: "12px",
+                borderRadius: "10px",
+                marginBottom: "20px",
+                fontSize: "14px",
+                border: "1px solid #fecaca",
+              }}
+            >
+              {error}
             </div>
           )}
 
-          <div style={{ marginBottom: "16px" }}>
+          {/* EMAIL */}
+          <div style={{ marginBottom: "18px" }}>
+            <label
+              style={{
+                display: "block",
+                marginBottom: "8px",
+                color: "#334155",
+                fontWeight: "500",
+              }}
+            >
+              Email
+            </label>
+
             <input
               type="email"
               name="email"
-              placeholder="Enter Email"
+              placeholder="Enter your email"
               value={credentials.email}
               onChange={handleChange}
               disabled={isLoading}
               required
-              style={{ width: "100%", padding: "12px", border: "1px solid #ddd", borderRadius: "8px", fontSize: "1rem", boxSizing: "border-box" }}
+              style={{
+                width: "100%",
+                padding: "14px",
+                borderRadius: "12px",
+                border: "1px solid #dbe2ea",
+                outline: "none",
+                fontSize: "15px",
+                boxSizing: "border-box",
+              }}
             />
           </div>
 
-          <div style={{ marginBottom: "20px" }}>
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter Password"
-              value={credentials.password}
-              onChange={handleChange}
-              disabled={isLoading}
-              required
-              style={{ width: "100%", padding: "12px", border: "1px solid #ddd", borderRadius: "8px", fontSize: "1rem", boxSizing: "border-box" }}
-            />
+          {/* PASSWORD */}
+          <div style={{ marginBottom: "24px" }}>
+            <label
+              style={{
+                display: "block",
+                marginBottom: "8px",
+                color: "#334155",
+                fontWeight: "500",
+              }}
+            >
+              Password
+            </label>
+
+            <div
+              style={{
+                position: "relative",
+              }}
+            >
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Enter your password"
+                value={credentials.password}
+                onChange={handleChange}
+                disabled={isLoading}
+                required
+                style={{
+                  width: "100%",
+                  padding: "14px 50px 14px 14px",
+                  borderRadius: "12px",
+                  border: "1px solid #dbe2ea",
+                  outline: "none",
+                  fontSize: "15px",
+                  boxSizing: "border-box",
+                }}
+              />
+
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                style={{
+                  position: "absolute",
+                  right: "14px",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  border: "none",
+                  background: "transparent",
+                  cursor: "pointer",
+                  color: "#64748b",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                {showPassword ? (
+                  <FiEyeOff size={20} />
+                ) : (
+                  <FiEye size={20} />
+                )}
+              </button>
+            </div>
           </div>
 
           <button
             type="submit"
             disabled={isLoading}
-            style={{ 
-              width: "100%", 
-              padding: "14px", 
-              background: "#FF6B35", 
-              color: "white", 
-              border: "none", 
-              borderRadius: "8px", 
-              fontSize: "1rem", 
-              fontWeight: "600", 
-              cursor: isLoading ? "not-allowed" : "pointer", 
-              opacity: isLoading ? 0.7 : 1 
+            style={{
+              width: "100%",
+              padding: "14px",
+              border: "none",
+              borderRadius: "12px",
+              background: "#FF6B35",
+              color: "#fff",
+              fontWeight: "600",
+              fontSize: "16px",
+              cursor: isLoading ? "not-allowed" : "pointer",
+              opacity: isLoading ? 0.7 : 1,
+              transition: "all 0.3s ease",
             }}
           >
             {isLoading ? "Signing In..." : "Login"}

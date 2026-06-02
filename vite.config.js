@@ -5,3 +5,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
 })
+
+export default defineConfig({
+  build: {
+    chunkSizeWarningLimit: 1000 // បង្កើនពី 500KB ទៅ 1000KB (ឬតាមការកំណត់របស់អ្នក)
+  }
+})
