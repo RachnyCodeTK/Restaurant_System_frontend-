@@ -80,7 +80,7 @@ const remove = (endpoint) =>
 
 // USER LOGIN
 export const login = (credentials) =>
-    post("/login", credentials);
+    post("/user/login", credentials);
 
 // CUSTOMER LOGIN
 export const loginCustomer = (credentials) =>
