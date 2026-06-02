@@ -1,0 +1,154 @@
+/* Layout container */
+.main {
+    padding: 20px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 600;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+/* Form Styling */
+form {
+    /* This centers the form horizontally within the .main area */
+    margin: 20px auto; 
+    
+    /* Use flex to stack inputs vertically */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    /* Styling */
+    max-width: 600px;
+    width: 100%; /* Ensures it's responsive */
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Fields */
+form input {
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.2s ease-in-out;
+    text-align: left;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Submit Button */
+form button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+form button:hover:not(:disabled) {
+    background-color: #218838;
+}
+
+form button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Success/Error Message */
+p {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 600px;
+    text-align: right;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Logic for dynamic message colors (if you want to add classes later) */
+.message-success {
+    background-color: #d4edda;
+    color: #160efb;
+}
+
+.message-error {
+    background-color: #f8d7da;
+    color: #fe0019;
+}
+
+/* ===== IMAGE INPUT SECTION ===== */
+.image-input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.image-mode-label {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.image-mode-toggle {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 10px 15px;
+    border: 2px solid #ced4da;
+    background-color: #f8f9fa;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+    border-color: #007bff;
+    background-color: #e7f1ff;
+}
+
+.toggle-btn.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.image-preview {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    background-color: #f8f9fa;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 5px;
+    object-fit: contain;
+}

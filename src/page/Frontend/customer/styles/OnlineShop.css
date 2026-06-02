@@ -1,0 +1,124 @@
+/* online-history.css */
+
+.online-history-container {
+    min-height: 100vh;
+    background: #f4f7fb;
+    display: flex;
+    flex-direction: column;
+}
+
+.online-history-content {
+    flex: 1;
+    padding: 40px 60px;
+    max-width: 1400px;
+    width: 100%;
+    margin: auto;
+}
+
+.online-history-content h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Empty Message */
+.online-history-content p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Order List */
+.order-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+/* Order Card */
+.order-item {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.order-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-color: #0d6efd;
+}
+
+/* Blue top line effect */
+.order-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(90deg, #0d6efd, #00c6ff);
+}
+
+/* Text */
+.order-item p {
+    margin: 10px 0;
+    font-size: 15px;
+    color: #444;
+    line-height: 1.5;
+    text-align: left;
+}
+
+/* Labels */
+.order-item p strong {
+    color: #111;
+}
+
+/* Status Colors */
+.order-item p:nth-child(7) {
+    font-weight: 600;
+    color: #ff9800;
+}
+
+.order-item p:nth-child(8) {
+    font-weight: 600;
+    color: #28a745;
+}
+
+/* Total Amount */
+.order-item p:nth-child(6) {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .online-history-content {
+        padding: 20px;
+    }
+
+    .online-history-content h2 {
+        font-size: 26px;
+    }
+
+    .order-item {
+        padding: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .online-history-content h2 {
+        font-size: 22px;
+    }
+
+    .order-item p {
+        font-size: 14px;
+    }
+}

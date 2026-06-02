@@ -1,0 +1,88 @@
+.page-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-title p{
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+}
+
+.btn-save-all{
+    width:20%;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+/* Modern Search Input */
+.adjustsearch-input {
+    width: 100%;
+    max-width: none;
+    padding: 14px 20px;
+    margin-bottom: 25px;
+    border: 2px solid #000;
+    border-radius: 12px;
+    outline: none;
+    font-size: 14px;
+    color: #000;
+    background-color: #fff;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    box-sizing: border-box;
+}
+
+.adjustsearch-input:focus {
+    border-color: #000;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+.adjustsearch-input::placeholder {
+    color: #6b7280;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.btn-save{
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+.btn-save:hover{
+    background-color: #109717;
+}
+
+/* //qty block for update product */
+.qty-control{
+    display: flex;
+    align-items: center;
+}
+
+.qty-control button{
+    background-color: #ddd;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.qty-control button:hover{
+    background-color: #3adf82;
+}
+
+.qty-control input{
+    width: 50px;
+    text-align: center;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}

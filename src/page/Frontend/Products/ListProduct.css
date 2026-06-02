@@ -1,0 +1,174 @@
+/* Container & Main Layout */
+.container {
+    display: flex; /* Ensures Sidebar is on the left */
+    min-height: 80vh;
+}
+
+.main {
+    flex: 1;
+    padding: 25px;
+    background-color: #f4f7f6;
+    min-height: 100vh;
+}
+
+.main h1 {
+    margin-bottom: 15px;
+    color: rgb(11, 11, 28);
+}
+
+/* Page Title Section */
+.page-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.page-title h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.page-title p {
+    margin: 5px 0 0 0;
+    color: #777;
+    font-size: 14px;
+}
+
+/* Add Product Button */
+.btn-add-new {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-add-new:hover {
+    background-color: #0056b3;
+}
+
+/* Search Bar */
+.search-input-product {
+  width: 100%;
+  max-width: auto;
+  padding: 12px 18px;
+  border: 1px solid #dcdfe4;
+  border-radius: 14px;
+  background: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1f2937;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.search-input-product::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.search-input-product:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.12);
+}
+
+.search-input-product:focus {
+  border-color: #2563eb;
+  background: #f9fbff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+  transform: translateY(-1px);
+}
+
+.dark .search-input-product {
+  background: #1f2937;
+  border: 1px solid #374151;
+  color: #f9fafb;
+}
+
+.dark .search-input-product::placeholder {
+  color: #9ca3af;
+}
+
+.dark .search-input-product:focus {
+  background: #111827;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.2);
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden; /* Rounds the table corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+    background-color: #f8f9fa;
+}
+
+th {
+    text-align: left;
+    padding: 15px;
+    font-weight: 600;
+    color: #555;
+    border-bottom: 2px solid #eee;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    color: #444;
+    vertical-align: middle;
+}
+
+tr:hover {
+    background-color: #fdfdfd;
+}
+
+/* Delete Button */
+.btn-delete {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: opacity 0.2s;
+}
+
+.btn-delete:hover {
+    opacity: 0.8;
+}
+
+.btn-edit {
+    background-color: #28a745;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: opacity 0.2s;
+    margin-right: 10px;
+}
+
+.btn-edit:hover {
+    opacity: 0.8;
+}
+
+/* Small Photo Placeholder text */
+td:nth-child(6) {
+    font-style: italic;
+    color: #999;
+    font-size: 12px;
+}

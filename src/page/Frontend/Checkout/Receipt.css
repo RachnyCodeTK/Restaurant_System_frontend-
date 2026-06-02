@@ -1,0 +1,174 @@
+/* Overlay */
+.receipt-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Paper style (thermal receipt) */
+.receipt-paper {
+  width: 400px;
+  background: white;
+  color: black;
+  padding: 10px;
+  font-family: monospace;
+  border-radius: 8px;
+  height: auto;
+  max-height: 90vh;
+  overflow: scroll;
+}
+
+/* Center text */
+.center {
+  text-align: center;
+}
+
+.center p {
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* Line divider */
+.line {
+  border-top: 1px dashed black;
+  margin: 5px 0;
+}
+
+/* Info */
+.info {
+  font-size: 12px;
+}
+
+.info p {
+  margin: 4px 0;
+  text-align: left;
+}
+
+.receipt-labels {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 10px;
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 8px;
+  padding: 8px 0 4px;
+  border-bottom: 1px dashed #ccc;
+  font-weight: 700;
+}
+
+.receipt-labels p {
+  text-align: start;
+}
+
+.receipt-labels span:first-child {
+  text-align: left;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.receipt-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+  font-size: 12px;
+  padding: 5px 0;
+  border-bottom: 1px dashed rgba(0,0,0,0.15);
+}
+
+.receipt-row:last-child {
+  border-bottom: none;
+}
+
+.receipt-col.name-col strong {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.item-meta {
+  font-size: 11px;
+  color: #666;
+}
+
+.receipt-col.qty-col,
+.receipt-col.total-col {
+  text-align: center;
+}
+
+/* Total */
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+/* Discount section */
+.discount-section {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #d32f2f;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+/* Payment */
+.payment-info {
+  font-size: 13px;
+}
+
+/* Buttons */
+.receipt-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.cancel {
+  background: red;
+  color: white;
+}
+
+.print {
+  background: green;
+  color: white;
+}
+
+/* Paid input */
+.paid-input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: monospace;
+}
+
+/* Hide buttons when printing */
+@media print {
+  .no-print {
+    display: none;
+  }
+
+  body {
+    background: white;
+  }
+}
