@@ -78,6 +78,10 @@ const remove = (endpoint) =>
 
 // AUTH APIs
 
+// USER LOGIN
+export const login = (credentials) =>
+    post("/login", credentials);
+
 // CUSTOMER LOGIN
 export const loginCustomer = (credentials) =>
     post("/customer/login", credentials);
