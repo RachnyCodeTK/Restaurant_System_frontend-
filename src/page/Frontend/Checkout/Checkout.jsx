@@ -338,7 +338,7 @@ const Checkout = () => {
               <div style={{ marginBottom: "30px" }}>
                 <h3 style={{ color: "#555", marginBottom: "15px" }}>Select Payment Method</h3>
                 <div style={{ display: "grid", gap: "12px" }}>
-                  {["credit-card", "paypal", "cash"].map((method) => (
+                  {["credit-card", "paypal", "cash", "khqr"].map((method) => (
                     <label key={method} style={{ display: "flex", alignItems: "center", padding: "16px", border: formData.paymentMethod === method ? "2px solid #FF6B35" : "1px solid #ddd", borderRadius: "8px", cursor: "pointer", backgroundColor: formData.paymentMethod === method ? "#fff8f5" : "white" }}>
                       <input
                         type="radio"

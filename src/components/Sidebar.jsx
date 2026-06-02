@@ -66,7 +66,7 @@ const Sidebar = ({ isOpen, onClose }) => {
         </li>
 
         {/* POS Sale */}
-        <li onClick={() => handleNavigation("/pos")}>
+        <li onClick={() => handleNavigation("/shop")}>
           <div className="menu-item">
             POS Sale
           </div>
